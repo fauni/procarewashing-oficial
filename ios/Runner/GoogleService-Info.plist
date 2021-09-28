@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>657893521689-lp21vqv4fek3naodt0m30625spggcj1c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.657893521689-lp21vqv4fek3naodt0m30625spggcj1c</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>657893521689-2ars5b2n4cb9vghgifs8hbhe087mmcad.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDE-CCtcUY0GqQQEvlrOc2S8AlAh_RHnlo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>657893521689</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>app.mobile.procarewashing</string>
+	<key>PROJECT_ID</key>
+	<string>carwash-a08b9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>carwash-a08b9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:657893521689:ios:09b5c7054876340ee16d88</string>
+</dict>
+</plist>
