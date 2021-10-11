@@ -64,7 +64,7 @@ class SplashPageState extends StateMVC<SplashPage> {
               fit: BoxFit.cover,
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 50),
+              margin: const EdgeInsets.only(bottom: 50),
               alignment: Alignment.bottomCenter,
               child: Text(
                 'Tu auto, nuestro cuidado',
@@ -86,7 +86,7 @@ class SplashPageState extends StateMVC<SplashPage> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 CircularProgressIndicator(
