@@ -40,10 +40,9 @@ class VehiculoPageState extends StateMVC<VehiculoPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: Text('Mis Vehiculos'),
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back_ios,
-              color: Theme.of(context).hintColor),
+        title: const Text('Mis Vehiculos'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).hintColor),
           onPressed: () => Navigator.of(context).pop(),
         ),
         // actions: <Widget>[
@@ -71,9 +70,11 @@ class VehiculoPageState extends StateMVC<VehiculoPage> {
           _con.vehiculos.isEmpty
               ? Container(
                   height: 200,
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 200),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 200),
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: Theme.of(context).accentColor),
@@ -98,13 +99,14 @@ class VehiculoPageState extends StateMVC<VehiculoPage> {
                   ),
                 )
               : Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   color: Colors.transparent.withOpacity(0.1),
                   width: width_size,
                   height: height_size,
-                  padding: EdgeInsets.only(top: 160, bottom: 100),
+                  padding: const EdgeInsets.only(top: 160, bottom: 100),
                   child: ListView.separated(
-                    padding: EdgeInsets.symmetric(vertical: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15),
                     shrinkWrap: true,
                     primary: false,
                     scrollDirection: Axis.vertical,
@@ -166,12 +168,11 @@ class VehiculoPageState extends StateMVC<VehiculoPage> {
                                 TextButton(
                                   child: const Text('Modificar'),
                                   onPressed: () {
-                                    print('presionaste ver para editar');
                                     final result = Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => VerVehiculoPage(
-                                          routeArgument: new RouteArgument(
+                                          routeArgument: RouteArgument(
                                               id: "0",
                                               param: [
                                                 _con.vehiculos.elementAt(index)

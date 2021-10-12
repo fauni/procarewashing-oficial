@@ -328,18 +328,18 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
     showDialog(
         context: context,
         builder: (_) => AlertDialog(
-              title: new Text("Modelo de Vehículo"),
+              title: const Text("Modelo de Vehículo"),
               content: Container(
                 height: 300,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Text('Agregar Modelo de Vehiculo'),
-                      SizedBox(
+                      const Text('Agregar Modelo de Vehiculo'),
+                      const SizedBox(
                         height: 10,
                       ),
                       DropdownSearch<String>(
-                        mode: Mode.BOTTOM_SHEET,
+                        mode: Mode.DIALOG,
                         maxHeight: 350,
                         items: _con.anios,
                         label: "Seleccionar el Año",
@@ -366,7 +366,7 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                           labelStyle:
                               TextStyle(color: Theme.of(context).hintColor),
                         ),
-                        searchBoxDecoration: InputDecoration(
+                        searchBoxDecoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
                           labelText: "Buscar Año del Vehiculo",
@@ -375,12 +375,12 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                           height: 50,
                           decoration: BoxDecoration(
                             color: Theme.of(context).primaryColor,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20),
                             ),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               'Año del Vehiculo',
                               style: TextStyle(
@@ -391,18 +391,18 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                             ),
                           ),
                         ),
-                        popupShape: RoundedRectangleBorder(
+                        popupShape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(24),
                             topRight: Radius.circular(24),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       DropdownSearch<String>(
-                        mode: Mode.BOTTOM_SHEET,
+                        mode: Mode.DIALOG,
                         maxHeight: 350,
                         items: _con.marcas,
                         label: "Seleccionar el Fabricante",
@@ -429,7 +429,7 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                           labelStyle:
                               TextStyle(color: Theme.of(context).hintColor),
                         ),
-                        searchBoxDecoration: InputDecoration(
+                        searchBoxDecoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.fromLTRB(12, 12, 8, 0),
                           labelText: "Buscar Fabricantes de Vehiculo",
@@ -438,12 +438,12 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                           height: 50,
                           decoration: BoxDecoration(
                             color: Theme.of(context).primaryColor,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20),
                             ),
                           ),
-                          child: Center(
+                          child: const Center(
                             child: Text(
                               'Fabricantes de Vehiculo',
                               style: TextStyle(
@@ -454,19 +454,18 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                             ),
                           ),
                         ),
-                        popupShape: RoundedRectangleBorder(
+                        popupShape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(24),
                             topRight: Radius.circular(24),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextField(
                         onChanged: (cadena) {
-                          print(cadena);
                           _con.vehiculomodelo.modelo = cadena;
                         },
                         decoration: InputDecoration(
@@ -479,7 +478,7 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                                   color: Theme.of(context).accentColor,
                                   width: 1.0),
                             ),
-                            border: OutlineInputBorder(),
+                            border: const OutlineInputBorder(),
                             labelStyle: TextStyle(
                                 color: Theme.of(context).accentColor)),
                       ),
@@ -488,16 +487,16 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                 ),
               ),
               actions: <Widget>[
-                FlatButton(
-                  child: Text('Guardar'),
+                OutlinedButton(
+                  child: const Text('Guardar'),
                   onPressed: () {
                     if (_con.vehiculomodelo.anio == null ||
                         _con.vehiculomodelo.marca == null ||
                         _con.vehiculomodelo.modelo == null) {
                       scaffoldKey.currentState!.showSnackBar(
                         SnackBar(
-                          content:
-                              Text('Completa la información, antes de guardar'),
+                          content: const Text(
+                              'Completa la información, antes de guardar'),
                           action: SnackBarAction(
                               label: "Aceptar", onPressed: () {}),
                         ),
@@ -507,7 +506,7 @@ class AgregarVehiculoPageState extends StateMVC<AgregarVehiculoPage> {
                     }
                   },
                 ),
-                FlatButton(
+                OutlinedButton(
                   child: Text('Cancelar'),
                   onPressed: () {
                     Navigator.of(context).pop();

@@ -400,10 +400,10 @@ class CarroController extends ControllerMVC {
     //     Navigator.of(context).pop();
     //   },
     // );
-    Widget continueButton = FlatButton(
+    Widget continueButton = OutlinedButton(
       child: Text(
         "De acuerdo!",
-        style: TextStyle(color: Theme.of(context).primaryColor),
+        style: TextStyle(color: Theme.of(context).accentColor),
       ),
       onPressed: () {
         // setReservaCompleta();
@@ -412,8 +412,8 @@ class CarroController extends ControllerMVC {
     );
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Tamaño del Vehículo"),
-      content: Text(
+      title: const Text("Tamaño del Vehículo"),
+      content: const Text(
           "El tamaño elegido será verificado al momento de la recepción del vehículo"),
       actions: [
         //cancelButton,

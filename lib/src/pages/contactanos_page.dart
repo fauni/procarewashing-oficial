@@ -84,7 +84,7 @@ class _ContactanosPageState extends StateMVC<ContactanosPage> {
                       width: 50,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Text(
@@ -95,7 +95,7 @@ class _ContactanosPageState extends StateMVC<ContactanosPage> {
                       color: Theme.of(context).hintColor,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
@@ -122,7 +122,7 @@ class _ContactanosPageState extends StateMVC<ContactanosPage> {
                       color: Theme.of(context).hintColor,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Container(
@@ -141,7 +141,7 @@ class _ContactanosPageState extends StateMVC<ContactanosPage> {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
@@ -162,7 +162,7 @@ class _ContactanosPageState extends StateMVC<ContactanosPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
@@ -174,13 +174,14 @@ class _ContactanosPageState extends StateMVC<ContactanosPage> {
                         color: Colors.greenAccent,
                         textColor: Theme.of(context).hintColor,
                         onPressed: () {
-                          _con.launchWhatsApp(
-                              phone: '+591 77799292',
+                          _con.openwhatsapp(
+                              context: context,
+                              phone: '+59177799292',
                               message:
                                   '¡Hola! \n Bienvenid@ a Procare Washing.\n ¿En que podemos ayudarte?');
                         },
-                        label: Text('EscrÍbenos al Whatsapp'),
-                        icon: FaIcon(
+                        label: const Text('EscrÍbenos al Whatsapp'),
+                        icon: const FaIcon(
                           FontAwesomeIcons.whatsapp,
                           color: Colors.white,
                         ),

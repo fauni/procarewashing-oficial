@@ -71,17 +71,56 @@ class HomeController extends ControllerMVC {
   }) async {
     // FlutterOpenWhatsapp.sendSingleMessage(phone, message);
     String url() {
+      if (Platform.isAndroid) {
+        // add the [https]
+        return "https://wa.me/$phone/?text=${Uri.parse(message!)}"; // new line
+      } else {
+        // add the [https]
+        return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message!)}"; // new line
+      }
+      /*
       if (Platform.isIOS) {
         return "whatsapp://wa.me/$phone/?text=${Uri.parse(message!)}";
       } else {
         return "whatsapp://send?phone=$phone&text=${Uri.parse(message!)}";
       }
+      */
+      // return "whatsapp://send?phone=$phone&text=${Uri.parse(message!)}";
     }
 
+    print(url());
     if (await canLaunch(url())) {
       await launch(url());
     } else {
       throw 'Could not launch ${url()}';
+    }
+  }
+
+  openwhatsapp(
+      {@required String? phone,
+      @required String? message,
+      @required BuildContext? context}) async {
+    var whatsapp = "+59177799292";
+    var whatsappURl_android =
+        "whatsapp://send?phone=" + whatsapp + "&text=$message!";
+    var whatappURL_ios =
+        "https://wa.me/$whatsapp?text=${Uri.parse("$message")}";
+    if (Platform.isIOS) {
+      // for iOS phone only
+      if (await canLaunch(whatappURL_ios)) {
+        await launch(whatappURL_ios, forceSafariVC: false);
+      } else {
+        ScaffoldMessenger.of(context!)
+            .showSnackBar(SnackBar(content: Text("whatsapp no installed")));
+      }
+    } else {
+      // android , web
+      if (await canLaunch(whatsappURl_android)) {
+        await launch(whatsappURl_android);
+      } else {
+        ScaffoldMessenger.of(context!)
+            .showSnackBar(SnackBar(content: Text("whatsapp no installed")));
+      }
     }
   }
 

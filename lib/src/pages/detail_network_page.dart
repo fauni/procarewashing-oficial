@@ -18,11 +18,8 @@ class _DetailNetworkScreenWidgetState extends State<DetailNetworkScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () => Navigator.pop(context))
-          ],
+          backgroundColor: Colors.transparent,
+          actions: [],
         ),
         body: Center(
           child: GestureDetector(
