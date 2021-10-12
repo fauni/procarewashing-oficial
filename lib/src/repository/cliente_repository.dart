@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:procarewashing/src/models/cdev.dart';
 import 'package:procarewashing/src/models/cliente.dart';
 import 'package:procarewashing/src/models/usuario.dart';
+import 'package:procarewashing/src/repository/user_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../repository/user_repository.dart' as userRepo;
@@ -134,16 +135,16 @@ Future<String?> getClienteElegido() async {
 }
 
 //Guarda IdDevice para notificaciones
-Future<void> guardarTokenDevice(String token_device) async {
-  if (await verificaTokenDevice(token_device)) {
+Future<void> guardarTokenDevice(
+    String token_device, String emailCliente) async {
+  Cdev dev = new Cdev();
+  dev.id = 0;
+  dev.idCliente = emailCliente;
+  dev.idDevice = token_device;
+  dev.estado = 1;
+  if (await verificaTokenDevice(token_device, dev)) {
     print('No se guardo!');
   } else {
-    Usuario _user = userRepo.currentUser!.value;
-    Cdev dev = new Cdev();
-    dev.id = 0;
-    dev.idCliente = _user.email;
-    dev.idDevice = token_device;
-    dev.estado = 1;
     final String url =
         '${GlobalConfiguration().getString('api_base_url_wash')}clientes/savedevice';
     final client = new http.Client();
@@ -159,13 +160,7 @@ Future<void> guardarTokenDevice(String token_device) async {
   }
 }
 
-Future<bool> verificaTokenDevice(String token_device) async {
-  Usuario _user = userRepo.currentUser!.value;
-  Cdev dev = new Cdev();
-  dev.id = 0;
-  dev.idCliente = _user.email;
-  dev.idDevice = token_device;
-  dev.estado = 1;
+Future<bool> verificaTokenDevice(String token_device, Cdev dev) async {
   final String url =
       '${GlobalConfiguration().getString('api_base_url_wash')}clientes/verificaclientedevice';
   final client = new http.Client();
@@ -189,12 +184,4 @@ Future<bool> verificaTokenDevice(String token_device) async {
   } catch (e) {
     return false;
   }
-  // print(response.statusCode);
-  // if (response.statusCode == 200) {
-  //   print('=============================');
-  //   print('Se guardo el token correctamente');
-  // } else {
-  //   print('=============================');
-  //   print('No se pudo guardar el token');
-  // }
 }

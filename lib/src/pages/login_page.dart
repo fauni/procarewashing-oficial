@@ -46,14 +46,14 @@ class LoginPageState extends StateMVC<LoginPage> {
                   'assets/img/logo_horizontal.png',
                   width: MediaQuery.of(context).size.width / 2,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
                 Text(
                   'Ingresar con:',
                   style: TextStyle(color: Theme.of(context).hintColor),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 ButtonTheme(
@@ -84,6 +84,7 @@ class LoginPageState extends StateMVC<LoginPage> {
                 const SizedBox(
                   height: 20,
                 ),
+                /*
                 ButtonTheme(
                   minWidth: double.infinity,
                   height: 50,
@@ -98,10 +99,10 @@ class LoginPageState extends StateMVC<LoginPage> {
                       color: Theme.of(context).primaryColor,
                       size: 35,
                     ),
-                    label: Text('Facebook'),
+                    label: const Text('Facebook'),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Colors.blue, //Theme.of(context).primaryColor,
                         width: 1,
                         style: BorderStyle.solid,
@@ -109,7 +110,8 @@ class LoginPageState extends StateMVC<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                */
+                const SizedBox(
                   height: 20,
                 ),
                 _con.supportsAppleSignIn
@@ -127,10 +129,10 @@ class LoginPageState extends StateMVC<LoginPage> {
                             color: Colors.white,
                             size: 35,
                           ),
-                          label: Text('Apple'),
+                          label: const Text('Apple'),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
-                            side: BorderSide(
+                            side: const BorderSide(
                               color: Colors
                                   .white, //Theme.of(context).primaryColor,
                               width: 1,

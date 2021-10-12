@@ -127,7 +127,7 @@ class VerVehiculoController extends ControllerMVC {
 
   showAlertDialogError(BuildContext context, String mensaje) {
     // set up the buttons
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = OutlinedButton(
       child: Text("Aceptar"),
       onPressed: () {
         Navigator.of(context).pop();

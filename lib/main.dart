@@ -6,6 +6,7 @@ import 'package:global_configuration/global_configuration.dart';
 import 'package:procarewashing/route_generator.dart';
 // import 'package:global_configuration/global_configuration.dart';
 import 'package:procarewashing/src/models/setting.dart';
+import 'package:procarewashing/src/pages/compartir_page.dart';
 import 'package:procarewashing/src/services/push_notifications_service.dart';
 // import 'package:pcw_admin/src/route_generator.dart';
 // import 'package:pcw_admin/src/theme.dart';
@@ -47,6 +48,10 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  final GlobalKey<NavigatorState> navigatorKey =
+      new GlobalKey<NavigatorState>();
+  final GlobalKey<ScaffoldMessengerState> messengerKey =
+      new GlobalKey<ScaffoldMessengerState>();
   @override
   void initState() {
     // initializeFlutterFire();
@@ -56,23 +61,15 @@ class _MyAppState extends State<MyApp> {
 
     PushNotificationService.messagesStream.listen((message) {
       print('ProcareWashing MyApp: $message');
+
+      navigatorKey.currentState?.pushNamed('/Compartir', arguments: message);
+      // final snackBar = SnackBar(content: Text('$message'));
+      // messengerKey.currentState!.showSnackBar(snackBar);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    /*if (_error) {
-      return Container(
-        child: Text('Error al cargar Firebase'),
-      );
-    }
-    if (!_initialized) {
-      return CircularLoadingWidget(
-        texto: 'Cargando Firebase',
-        height: 200,
-      );
-    }
-    */
     return ValueListenableBuilder(
         valueListenable: settingRepo.setting,
         builder: (context, Setting _setting, _) {
@@ -81,6 +78,8 @@ class _MyAppState extends State<MyApp> {
             initialRoute: '/Splash',
             onGenerateRoute: RouteGenerator.generateRoute,
             debugShowCheckedModeBanner: false,
+            navigatorKey: navigatorKey,
+            scaffoldMessengerKey: messengerKey,
             theme: ThemeData(
               fontFamily: 'Scanno',
               primaryColor: const Color(0xFF2e3092),

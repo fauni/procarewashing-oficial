@@ -182,13 +182,13 @@ class AtencionController extends ControllerMVC {
 
   showAlertDialog(BuildContext context) {
     // set up the buttons
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = OutlinedButton(
       child: Text("Continuar Lavando"),
       onPressed: () {
         Navigator.of(context).pop();
       },
     );
-    Widget continueButton = FlatButton(
+    Widget continueButton = OutlinedButton(
       child: Text("Finalizar"),
       onPressed: () {
         finalizarAtencion();

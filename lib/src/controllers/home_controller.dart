@@ -100,9 +100,11 @@ class HomeController extends ControllerMVC {
       {@required String? phone,
       @required String? message,
       @required BuildContext? context}) async {
-    var whatsapp = "+59177799292";
+    var whatsapp = "+591 77799292";
+    var whatsapp_android = "+591 77799292";
+    // var whatsappURl_android ="whatsapp://send?phone=" + whatsapp_android + "&text=$message";
     var whatsappURl_android =
-        "whatsapp://send?phone=" + whatsapp + "&text=$message!";
+        "whatsapp://send?phone=$whatsapp_android&text=${Uri.parse(message!)}";
     var whatappURL_ios =
         "https://wa.me/$whatsapp?text=${Uri.parse("$message")}";
     if (Platform.isIOS) {
@@ -110,16 +112,16 @@ class HomeController extends ControllerMVC {
       if (await canLaunch(whatappURL_ios)) {
         await launch(whatappURL_ios, forceSafariVC: false);
       } else {
-        ScaffoldMessenger.of(context!)
-            .showSnackBar(SnackBar(content: Text("whatsapp no installed")));
+        ScaffoldMessenger.of(context!).showSnackBar(
+            const SnackBar(content: Text("whatsapp no installed")));
       }
     } else {
       // android , web
       if (await canLaunch(whatsappURl_android)) {
         await launch(whatsappURl_android);
       } else {
-        ScaffoldMessenger.of(context!)
-            .showSnackBar(SnackBar(content: Text("whatsapp no installed")));
+        ScaffoldMessenger.of(context!).showSnackBar(
+            const SnackBar(content: Text("No se pudo enviar el mensaje!")));
       }
     }
   }

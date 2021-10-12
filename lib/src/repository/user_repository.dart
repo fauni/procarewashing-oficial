@@ -233,6 +233,11 @@ Future<void> logout() async {
   });
 }
 
+Future<String> getToken() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return await prefs.getString('token')!;
+}
+
 Future<String> getUsuario() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   return await prefs.getString('usuario')!;

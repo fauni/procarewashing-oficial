@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:procarewashing/src/repository/cliente_repository.dart';
+import 'package:procarewashing/src/repository/user_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PushNotificationService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -42,19 +45,19 @@ class PushNotificationService {
   static Future _backgroundHandler(RemoteMessage message) async {
     print('onBackground Handler ${message.data}');
 
-    _messageStream.add(message.notification?.title ?? 'No title');
+    _messageStream.add(message.data['id_reserva'] ?? 'No Data');
   }
 
   static Future _onMessageHandler(RemoteMessage message) async {
     print('onMessage Handler ${message.data}');
 
-    _messageStream.add(message.notification?.title ?? 'No title');
+    _messageStream.add(message.data['id_reserva'] ?? 'No Data');
   }
 
   static Future _onMessageOpenApp(RemoteMessage message) async {
     print('onMessageOpenApp Handler ${message.data}');
 
-    _messageStream.add(message.notification?.title ?? 'No title');
+    _messageStream.add(message.data['id_reserva'] ?? 'No Data');
   }
 
   static Future initializaApp() async {
@@ -63,6 +66,10 @@ class PushNotificationService {
     token = await FirebaseMessaging.instance.getToken();
     print('Token:');
     print(token);
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('token', token!);
+    // guardarTokenDevice(token!);
 
     // Handlers
     FirebaseMessaging.onBackgroundMessage(_backgroundHandler);

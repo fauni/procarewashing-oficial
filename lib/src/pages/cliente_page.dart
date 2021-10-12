@@ -58,14 +58,14 @@ class ClientePageState extends StateMVC<ClientePage> {
                         'assets/img/logo_horizontal.png',
                         width: MediaQuery.of(context).size.width / 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 100,
                       ),
                       Text(
                         'Es necesario completar o confirmar la siguiente información:',
                         style: TextStyle(color: Theme.of(context).hintColor),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       TextFormField(
@@ -90,7 +90,7 @@ class ClientePageState extends StateMVC<ClientePage> {
                             labelStyle:
                                 TextStyle(color: Theme.of(context).hintColor)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       TextFormField(
@@ -113,7 +113,7 @@ class ClientePageState extends StateMVC<ClientePage> {
                             labelStyle:
                                 TextStyle(color: Theme.of(context).hintColor)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       TextFormField(
@@ -140,7 +140,7 @@ class ClientePageState extends StateMVC<ClientePage> {
                             labelStyle:
                                 TextStyle(color: Theme.of(context).hintColor)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       widget.cliente!.email == null

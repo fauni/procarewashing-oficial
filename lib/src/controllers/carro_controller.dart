@@ -315,7 +315,7 @@ class CarroController extends ControllerMVC {
 
   showAlertDialogError(BuildContext context, String mensaje) {
     // set up the buttons
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = OutlinedButton(
       child: Text("Aceptar"),
       onPressed: () {
         Navigator.of(context).pop();
@@ -340,13 +340,13 @@ class CarroController extends ControllerMVC {
 
   showAlertDialog(BuildContext context, String id_vehiculo) {
     // set up the buttons
-    Widget cancelButton = FlatButton(
+    Widget cancelButton = OutlinedButton(
       child: Text("No!"),
       onPressed: () {
         Navigator.of(context).pop();
       },
     );
-    Widget continueButton = FlatButton(
+    Widget continueButton = OutlinedButton(
       child: Text("Si!"),
       onPressed: () async {
         await deleteVehiculo(id_vehiculo);
