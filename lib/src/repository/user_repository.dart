@@ -127,6 +127,7 @@ Future<Usuario> loginApple() async {
 
     UserCredential result = (await _auth.signInWithCredential(oauthCredential));
     user = result.user;
+    final firebaseUser = result.user!;
 
     if (user!.emailVerified) {
       usuario.uid = user!.uid;
